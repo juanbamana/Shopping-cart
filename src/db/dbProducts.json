@@ -1,0 +1,44 @@
+[
+    {
+        "id": 1,
+        "name": "Home",
+        "image": "images/home.jpg",
+        "price": 0,
+        "extraInfo": "Descripcion"
+    },
+    {
+        "id": 2,
+        "name": "Home",
+        "image": "images/home.jpg",
+        "price": 0,
+        "extraInfo": "Descripcion"
+    },
+    {
+        "id": 3,
+        "name": "Home",
+        "image": "images/home.jpg",
+        "price": 0,
+        "extraInfo": "Descripcion"
+    },
+    {
+        "id": 4,
+        "name": "Home",
+        "image": "images/home.jpg",
+        "price": 0,
+        "extraInfo": "Descripcion"
+    },
+    {
+        "id": 5,
+        "name": "Home",
+        "image": "images/home.jpg",
+        "price": 0,
+        "extraInfo": "Descripcion"
+    },
+    {
+        "id": 6,
+        "name": "Home",
+        "image": "images/home.jpg",
+        "price": 0,
+        "extraInfo": "Descripcion"
+    }
+]
