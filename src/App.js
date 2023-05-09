@@ -1,9 +1,71 @@
-import { TopMenu } from "./components/Menu/TopMenu";
 
+
+import { useState, useEffect } from "react";
+import { TopMenu } from "./components/Menu/TopMenu";
+import { Products } from "./components/Products/Products";
+import { useFetch } from "./hooks/useFetch";
+import { urlApi } from "./utils/constants";
+import { STORAGE_PRODUCTS } from "./utils/constants";
+import { ToastContainer, toast } from 'react-toastify'
 function App() {
+
+  const products = useFetch(urlApi, null);
+  const [productsCart, setProductsCart] = useState([])
+
+
+  useEffect(() => {
+    getProductCart()
+
+  }, [])
+
+
+
+  const addProductCart = (id, title) => {
+
+    const idProducts = productsCart
+    idProducts.push(id)
+    setProductsCart(idProducts)
+    localStorage.setItem(STORAGE_PRODUCTS, productsCart)
+
+    toast.success(`${title} Añadido correctamente`)
+  }
+
+
+
+  const getProductCart = () => {
+
+    const idsProducts = localStorage.getItem(STORAGE_PRODUCTS);
+
+
+    if (idsProducts) {
+
+      const idsProductsSplit = idsProducts.split(",")
+      setProductsCart(idsProductsSplit)
+
+    } else {
+
+      setProductsCart([])
+    }
+  }
+
+
+
+
+
+
   return (
     <div className="App">
-     <TopMenu/>
+      <TopMenu />
+      <Products products={products} addProductCart={addProductCart} />
+      <ToastContainer
+        position="bottom-left"
+        autoClose={4000}
+        hideProgressBar
+        newestOnTop
+        closeOnClick
+        rtl={false}
+        draggable
+        pauseOnHover={false} />
     </div>
   );
 }
