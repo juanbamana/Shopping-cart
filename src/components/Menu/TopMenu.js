@@ -1,18 +1,21 @@
 import React from 'react'
-import { Navbar} from'react-bootstrap'
+import { Container, Navbar } from 'react-bootstrap'
 import { ReactComponent as Logo } from "../../assets/img/logo (1).svg";
+import { Cart } from '../Cart/Cart'
+
 
 import './TopMenu.scss'
-export const TopMenu = () => {
+export const TopMenu = ({productsCart, getProductsCart, products}) => {
   return (
 
 
     <Navbar bg="dark" variant="dark" className='top-menu'>
-    <BrandNav />
-    
-    
-    
-    
+      <Container>
+        <BrandNav />
+
+        <Cart productsCart={productsCart} getProductsCart={getProductsCart} products={products}/>
+
+      </Container>
     </Navbar>
   )
 }
@@ -20,13 +23,12 @@ export const TopMenu = () => {
 
 
 function BrandNav() {
-    return (
-      <Navbar.Brand>
-        <Logo />
-        <h2>La casa de los helados</h2>
-      </Navbar.Brand>
-    );
-  }
+  return (
+    <Navbar.Brand>
+      <Logo />
+      <h2>Tu tienda de Ropa</h2>
+    </Navbar.Brand>
+  );
+}
 
 
-  

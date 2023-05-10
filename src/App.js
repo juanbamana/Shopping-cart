@@ -14,7 +14,7 @@ function App() {
 
 
   useEffect(() => {
-    getProductCart()
+    getProductsCart()
 
   }, [])
 
@@ -26,13 +26,13 @@ function App() {
     idProducts.push(id)
     setProductsCart(idProducts)
     localStorage.setItem(STORAGE_PRODUCTS, productsCart)
-
+   getProductsCart()
     toast.success(`${title} Añadido correctamente`)
   }
 
 
 
-  const getProductCart = () => {
+  const getProductsCart = () => {
 
     const idsProducts = localStorage.getItem(STORAGE_PRODUCTS);
 
@@ -55,7 +55,7 @@ function App() {
 
   return (
     <div className="App">
-      <TopMenu />
+      <TopMenu productsCart={productsCart} getProductsCart={getProductsCart} products={products}/>
       <Products products={products} addProductCart={addProductCart} />
       <ToastContainer
         position="bottom-left"
